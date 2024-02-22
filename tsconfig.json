@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2021", // Компиляция в современный стандарт JavaScript
+    "module": "esnext", // Использование модулей ESNext
+    "lib": ["dom", "dom.iterable", "esnext"], // Подключение библиотек для DOM и современных возможностей JavaScript
+    "allowJs": true, // Разрешение импорта JS файлов
+    "skipLibCheck": true, // Пропуск тип-чекинга файлов объявлений внешних библиотек
+    "esModuleInterop": true, // Разрешение импорта модулей с использованием синтаксиса `import * as foo from 'foo'`
+    "allowSyntheticDefaultImports": true, // Разрешение импорта модулей без дефолтного экспорта
+    "strict": true, // Включение всех строгих проверок типов
+    "forceConsistentCasingInFileNames": true, // Обеспечение единообразия регистра в именах файлов
+    "moduleResolution": "node", // Стратегия разрешения модулей Node.js
+    "resolveJsonModule": true, // Разрешение импорта JSON файлов
+    "isolatedModules": true, // Убедиться, что каждый файл может быть безопасно транспилирован без зависимости от других файлов
+    "noEmit": true, // Не выводить файлы результатов компиляции (используется вместе с ESLint)
+    "jsx": "react-jsx", // Поддержка JSX для React
+    "baseUrl": "." // Базовый путь для разрешения неабсолютных путей импорта
+  },
+  "include": ["src/**/*"], // Включение всех исходных файлов из папки src
+  "exclude": ["node_modules", "**/*.spec.ts"] // Исключение папки node_modules и тестовых файлов
+}
