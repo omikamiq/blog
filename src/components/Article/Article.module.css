@@ -20,7 +20,9 @@
   display: block;
   font-size: 20px;
   line-height: 28px;
-  width: fit-content;
+  max-width: 400px;
+  padding: 0 10px;
+  overflow: hidden;
   text-decoration: none;
 }
 
@@ -30,6 +32,17 @@
   border: none;
   width: 16px;
   height: 14.23px;
+  cursor: pointer;
+}
+
+.liked_btn {
+  filter: invert(15%) sepia(88%) saturate(7445%) hue-rotate(6deg)
+    brightness(99%) contrast(120%);
+}
+
+.unliked_btn {
+  filter: invert(67%) sepia(0%) saturate(118%) hue-rotate(215deg)
+    brightness(91%) contrast(90%);
 }
 
 .like_counter {
@@ -66,6 +79,7 @@
   font-weight: 400;
   line-height: 22px;
   margin-top: 10px;
+  overflow: hidden;
 }
 
 .right {
@@ -86,6 +100,8 @@
   font-weight: 400;
   line-height: 28px;
   text-align: right;
+  max-width: 120px;
+  overflow: hidden;
 }
 
 .publication_data {
@@ -105,4 +121,5 @@
 .full_text {
   width: 940px;
   margin-top: 25px;
+  overflow: hidden;
 }

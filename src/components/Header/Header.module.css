@@ -61,3 +61,73 @@
   line-height: 28px;
   text-decoration: none;
 }
+
+.logined_btn_wrapper {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+}
+
+.profile:active {
+  color: black;
+}
+
+.profile:visited {
+  color: black;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+}
+
+.create_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+  height: 20px;
+  border: 1.5px solid rgb(82, 196, 26);
+  border-radius: 5px;
+  color: rgb(82, 196, 26);
+  background-color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.logout_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.switcher {
+  margin-left: -430px;
+}

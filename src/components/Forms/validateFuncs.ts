@@ -4,6 +4,7 @@ export const isUsername = (username: string) => {
 };
 
 export const isPassword = (password: string) => {
+  if (!password) return true;
   if (password.length > 5 && password.length < 41) return true;
   return false;
 };

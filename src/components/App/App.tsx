@@ -10,7 +10,7 @@ import SingleArticle from '../SingleArticle/SingleArticle';
 import SignUp from '../Forms/SignUp/SignUp';
 import SignIn from '../Forms/SignIn/SignIn';
 import Profile from '../Forms/Profile/Profile';
-
+import CreateArticle from '../Forms/CreateArticle/CreateArticle';
 import styles from './App.module.css';
 
 const App = () => {
@@ -24,6 +24,8 @@ const App = () => {
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/new-article' element={<CreateArticle />} />
+          <Route path='/articles/:slug/edit' element={<CreateArticle />} />
           <Route path='' element={<ArticleList />} />
         </Routes>
       </div>

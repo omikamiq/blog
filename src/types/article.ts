@@ -13,3 +13,29 @@ export interface Iarticle {
   title: string;
   updatedAt: string;
 }
+
+export interface IerrorResponse {
+  status: number;
+  data: {
+    errors: {
+      username?: string;
+      email?: string;
+    };
+  };
+}
+
+export interface IuserRegisterResponse {
+  user: {
+    username: string;
+    email: string;
+    password: string;
+  };
+}
+
+export interface IuserRegisterArg {
+  user: {
+    username: string;
+    email: string;
+    password: string;
+  };
+}
