@@ -89,7 +89,6 @@ const CreateArticle = () => {
       });
       setFinished(true);
     }
-    console.log(updatedData);
   };
 
   const formError: SubmitErrorHandler<FieldType> = (error) => {

@@ -21,7 +21,6 @@ const ArticleList = () => {
   const theme = useTheme();
 
   const onChange: PaginationProps['onChange'] = (pageNumber) => {
-    console.log(pageNumber);
     const strPageNumber = '' + pageNumber;
     setSearchParams({ page: strPageNumber });
   };
@@ -36,7 +35,6 @@ const ArticleList = () => {
     >
       {articles &&
         articles.articles?.map((article: Iarticle) => {
-          console.log(article);
           return <Article data={article} />;
         })}
       <Pagination

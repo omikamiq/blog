@@ -34,13 +34,10 @@ const Profile = () => {
     articlesAPI.useGetCurrentUserQuery(token);
 
   const submit: SubmitHandler<FieldType> = (updatedData) => {
-    console.log(updatedData);
-
     const user: { [key: string]: string } = {};
     for (let [key, value] of Object.entries(updatedData)) {
       if (value !== '') user[key] = value;
     }
-    console.log(user);
 
     updateUser({ user: user, token: token.token });
   };

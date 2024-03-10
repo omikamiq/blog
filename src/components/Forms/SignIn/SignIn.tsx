@@ -42,7 +42,6 @@ const SignIn = () => {
     dispatch(setToken(responseData.user.token));
     sessionStorage.setItem('token', responseData.user.token);
   }
-  console.log('данные', responseData);
 
   const formError: SubmitErrorHandler<FieldType> = (error) => {
     console.log(error);
