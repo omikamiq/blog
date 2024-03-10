@@ -6,6 +6,7 @@ import { setToken } from '../../store/slices/tokenSlice';
 import { Link } from 'react-router-dom';
 import { ThemeMode, useTheme, useThemeMode } from 'antd-style';
 import { Segmented } from 'antd';
+import avatar from '../../assets/avatar.png';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -35,6 +36,13 @@ const Header = () => {
 
   const unloginedItems = (
     <div className={styles.btn_wrapper}>
+      <Segmented
+        options={options}
+        value={themeMode}
+        onChange={(v) => setThemeMode(v as ThemeMode)}
+        size='small'
+        className={styles.switcher}
+      />
       <Link
         to={'/sign-in'}
         className={styles.signin_btn}
@@ -59,6 +67,13 @@ const Header = () => {
 
   const loginedInItems = (
     <div className={styles.logined_btn_wrapper}>
+      <Segmented
+        options={options}
+        value={themeMode}
+        onChange={(v) => setThemeMode(v as ThemeMode)}
+        size='small'
+        className={styles.switcher}
+      />
       <Link
         to={'/new-article'}
         className={styles.create_btn}
@@ -78,7 +93,10 @@ const Header = () => {
         >
           {currentUser?.user.username}
         </div>
-        <img className={styles.avatar} src={currentUser?.user.image}></img>
+        <img
+          className={styles.avatar}
+          src={currentUser?.user.image || avatar}
+        ></img>
       </Link>
       <button
         onClick={() => logOutHandler()}
@@ -114,13 +132,6 @@ const Header = () => {
       >
         Realworld Blog
       </Link>
-      <Segmented
-        options={options}
-        value={themeMode}
-        onChange={(v) => setThemeMode(v as ThemeMode)}
-        size='small'
-        className={styles.switcher}
-      />
       {itemsToRender}
     </div>
   );

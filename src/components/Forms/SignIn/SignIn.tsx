@@ -37,11 +37,11 @@ const SignIn = () => {
     };
 
     await loginUser(user);
-    if (responseData) {
-      dispatch(setToken(responseData.user.token));
-      sessionStorage.setItem('token', responseData.user.token);
-    }
   };
+  if (responseData) {
+    dispatch(setToken(responseData.user.token));
+    sessionStorage.setItem('token', responseData.user.token);
+  }
   console.log('данные', responseData);
 
   const formError: SubmitErrorHandler<FieldType> = (error) => {

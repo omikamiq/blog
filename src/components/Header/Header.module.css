@@ -17,14 +17,15 @@
 }
 
 .btn_wrapper {
-  width: 220px;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 20px;
 }
 
 .signin_btn {
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,5 +130,4 @@
 }
 
 .switcher {
-  margin-left: -430px;
 }

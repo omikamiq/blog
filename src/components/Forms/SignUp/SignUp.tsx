@@ -1,6 +1,9 @@
 import React from 'react';
-import { Alert, Button } from 'antd';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setToken } from '../../../store/slices/tokenSlice';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { Button } from 'antd';
+import { Link, Navigate } from 'react-router-dom';
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import { isEmail, isPassword, isUsername } from '../validateFuncs';
 import { articlesAPI } from '../../../services/articles';
@@ -25,10 +28,12 @@ const SignUp = () => {
     formState: { errors },
   } = useForm<FieldType>();
 
-  const [registerNewUser, { data: responceData, error, isError }] =
+  const [registerNewUser, { data: registerResponseData, error, isError }] =
     articlesAPI.useRegisterNewUserMutation();
 
-  const submit: SubmitHandler<FieldType> = (registerData) => {
+  const dispatch = useDispatch();
+
+  const submit: SubmitHandler<FieldType> = async (registerData) => {
     const user = {
       user: {
         username: registerData.username,
@@ -37,9 +42,15 @@ const SignUp = () => {
       },
     };
 
-    registerNewUser(user);
+    await registerNewUser(user);
   };
+
+  if (registerResponseData) {
+    dispatch(setToken(registerResponseData.user.token));
+    sessionStorage.setItem('token', registerResponseData.user.token);
+  }
   let serverError = null;
+
   if (error) {
     serverError = error as IerrorResponse;
   }
@@ -52,6 +63,8 @@ const SignUp = () => {
     if (password === watch('password')) return true;
     else return false;
   };
+  const { token } = useTypedSelector((state) => state.token);
+  if (token) return <Navigate to={'/articles'} />;
   return (
     <div
       className={styles.page}

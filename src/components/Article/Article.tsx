@@ -5,6 +5,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Link, useParams } from 'react-router-dom';
 import { useTheme } from 'antd-style';
 import like_btn from '../../assets/like_btn.svg';
+import avatar from '../../assets/avatar.png';
 import styles from './Article.module.css';
 
 import { Iarticle } from '../../../src/types/article';
@@ -97,7 +98,10 @@ const Article: React.FC<articleProps> = ({ data }) => {
             {formatData(data.createdAt)}
           </div>
         </div>
-        <img className={styles.author_avatar} src={data.author.image}></img>
+        <img
+          className={styles.author_avatar}
+          src={data.author.image || avatar}
+        ></img>
       </div>
       <Markdown className={styles.full_text}>{slug && data.body}</Markdown>
     </div>

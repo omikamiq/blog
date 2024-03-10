@@ -1,15 +1,21 @@
+.page {
+  display: flex;
+  justify-content: center;
+}
+
 .single_article {
+  position: relative;
+  width: fit-content;
   display: flex;
   height: 100vh;
-  justify-content: center;
   align-items: start;
   padding-top: 60px;
 }
 
 .btn_wrapper {
   position: absolute;
-  top: 220px;
-  right: 190px;
+  bottom: 450px;
+  right: 40px;
   display: flex;
   gap: 15px;
   width: fit-content;

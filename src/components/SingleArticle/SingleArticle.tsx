@@ -42,45 +42,53 @@ const SingleArticle: React.FC = () => {
   return (
     articleData && (
       <div
-        className={styles.single_article}
+        className={styles.page}
         style={{
           background: theme.colorPrimaryBg,
         }}
       >
-        {currentUser &&
-          articleData.article.author.username === currentUser.user.username && (
-            <div className={styles.btn_wrapper}>
-              <Popconfirm
-                title='Delete the task'
-                description='Are you sure to delete this task?'
-                onConfirm={() => deleteHandler()}
-                okText='Yes'
-                cancelText='No'
-              >
+        <div
+          className={styles.single_article}
+          style={{
+            background: theme.colorPrimaryBg,
+          }}
+        >
+          {currentUser &&
+            articleData.article.author.username ===
+              currentUser.user.username && (
+              <div className={styles.btn_wrapper}>
+                <Popconfirm
+                  title='Delete the task'
+                  description='Are you sure to delete this task?'
+                  onConfirm={() => deleteHandler()}
+                  okText='Yes'
+                  cancelText='No'
+                >
+                  <Button
+                    danger
+                    style={{
+                      background: theme.colorBgBase,
+                    }}
+                    className={styles.delete_btn}
+                  >
+                    Delete
+                  </Button>
+                </Popconfirm>
+
                 <Button
-                  danger
                   style={{
                     background: theme.colorBgBase,
                   }}
-                  className={styles.delete_btn}
+                  className={styles.edit_btn}
+                  onClick={() => EditHandler()}
                 >
-                  Delete
+                  Edit
                 </Button>
-              </Popconfirm>
+              </div>
+            )}
 
-              <Button
-                style={{
-                  background: theme.colorBgBase,
-                }}
-                className={styles.edit_btn}
-                onClick={() => EditHandler()}
-              >
-                Edit
-              </Button>
-            </div>
-          )}
-
-        <Article data={articleData.article} />
+          <Article data={articleData.article} />
+        </div>
       </div>
     )
   );
